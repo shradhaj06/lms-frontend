@@ -5,8 +5,9 @@ function App() {
 
   return (
     <>
-      <div>
-       </div>
+       <h1 className="text-7xl underline">
+      Hello world!
+    </h1>
     </>
   )
 }
