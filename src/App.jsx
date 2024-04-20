@@ -1,6 +1,8 @@
 
 import { useEffect } from 'react'
 import './App.css'
+import Footer from './components/Footer'
+
 
 function App() {
 
@@ -9,6 +11,7 @@ function App() {
        <h1 className="text-7xl underline">
       Hello world!
     </h1>
+    <Footer/>
     </>
   )
 }
