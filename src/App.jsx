@@ -1,18 +1,15 @@
 
 import { useEffect } from 'react'
 import './App.css'
-import Footer from './components/Footer'
+import Home from './pages/Home'
 
 
 function App() {
 
   return (
     <>
-       <h1 className="text-7xl underline">
-      Hello world!
-    </h1>
-    <Footer/>
+      <Home/>
     </>
-  )
+  );
 }
 export default App
