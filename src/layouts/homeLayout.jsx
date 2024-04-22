@@ -1,16 +1,14 @@
-
 import { AiFillCloseCircle} from 'react-icons/ai';
 import { FiMenu } from 'react-icons/fi';
 import { useDispatch, useSelector } from 'react-redux';
 import { Link, useNavigate } from 'react-router-dom';
 
 import Footer from "../components/Footer";
-import { logout } from '../redux/slices/authSlice';
 
 
 function HomeLayout({ children }) {
 
-    const dispatch   = useDispatch();
+    const dispatch = useDispatch();
     const navigate = useNavigate();
 
     const isLoggedIn = useSelector((state) => state?.auth?.isLoggedIn);
@@ -29,14 +27,7 @@ function HomeLayout({ children }) {
         drawerSide[0].style.width = '0';
     }
 
-    async function onLogout(e) {
-        e.preventDefault();
-
-        const response = await dispatch(logout());
-        if(response?.payload?.data)
-            navigate("/");
-    }
-
+    
     return (
         
         <div className="min-h-[90vh]">
@@ -117,8 +108,7 @@ function HomeLayout({ children }) {
 
         </div>
         
-    );    
-    
+    );
 }
 
-export default HomeLayout
+export default HomeLayout;
