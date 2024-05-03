@@ -27,7 +27,12 @@ function HomeLayout({ children }) {
         drawerSide[0].style.width = '0';
     }
 
-    
+    async function onLogout(e) {
+        e.preventDefault();
+        const response = await dispatch(logout());
+        if(response?.payload?.data)
+            navigate("/");
+    }
     return (
         
         <div className="min-h-[90vh]">
