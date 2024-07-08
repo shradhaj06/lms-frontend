@@ -4,7 +4,7 @@ import { AiOutlineArrowLeft } from "react-icons/ai";
 import { useDispatch } from "react-redux";
 import { Link, useNavigate } from "react-router-dom";
 
-import HomeLayout from "../../layouts/homeLayout";
+import HomeLayout from "../../layouts/HomeLayout";
 import { createNewCourse } from "../../redux/slices/courseSlice";
 function CreateCourse() {
     const dispatch = useDispatch();
@@ -45,7 +45,7 @@ function CreateCourse() {
 
     async function onFormSubmit(e) {
         e.preventDefault();
-        if(!userInput.title || !userInput.description || !userInput.createdBy || !userInput.category || !userInput.thumbnail) {
+        if(!userInput.title || !userInput.description || !userInput.createdBy || !userInput.category) {
             toast.error("All field are mandatory");
             return;
         }
@@ -60,10 +60,9 @@ function CreateCourse() {
                 thumbnail: null, // file
                 previewImage: ""
             });
-            navigate("/courses");
+            navigate("/course");
         }
     }
-
     return (
         <HomeLayout>
             <div className="h-[100vh] flex itmes-center justify-center">
@@ -183,3 +182,4 @@ function CreateCourse() {
     );
 }
                             
+export default CreateCourse;

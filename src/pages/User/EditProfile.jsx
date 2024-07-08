@@ -11,7 +11,7 @@ function EditProfile() {
 
     const dispatch = useDispatch();
     const navigate = useNavigate();
-
+    
     const [data, setData] = useState({
         fullName: "",
         previewImage: "",
@@ -61,7 +61,7 @@ function EditProfile() {
         await dispatch(getUserData());
 
         navigate("/user/profile");
-
+        
     }
 
     return (
@@ -95,7 +95,7 @@ function EditProfile() {
                         name="image_uploads"
                         accept=".jpg, .png, .jpeg, .svg"
                         className="hidden"
-
+                    
                     />
 
                     <div className="flex flex-col gap-1">

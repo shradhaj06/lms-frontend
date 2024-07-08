@@ -4,16 +4,14 @@ import { useDispatch, useSelector } from 'react-redux';
 import { Link, useNavigate } from 'react-router-dom';
 
 import Footer from "../components/Footer";
-
+import { logout } from '../redux/slices/authSlice';
 
 function HomeLayout({ children }) {
 
     const dispatch = useDispatch();
     const navigate = useNavigate();
-
     const isLoggedIn = useSelector((state) => state?.auth?.isLoggedIn);
     const role = useSelector((state) => state?.auth?.role);
-
     function changeWidth() {
         const drawerSide = document.getElementsByClassName("drawer-side");
         drawerSide[0].style.width = 'auto';
@@ -29,10 +27,12 @@ function HomeLayout({ children }) {
 
     async function onLogout(e) {
         e.preventDefault();
+
         const response = await dispatch(logout());
         if(response?.payload?.data)
             navigate("/");
     }
+
     return (
         
         <div className="min-h-[90vh]">
@@ -54,14 +54,14 @@ function HomeLayout({ children }) {
                         <li>
                             <Link to="/"> Home </Link>
                         </li>
-                        {isLoggedIn && role === "ADMIN" && (
+                        {isLoggedIn && role === "admin" && (
                             <li>
                                 <Link to="/admin/dashboard">Admin Dashboard</Link>
                             </li>
                         )
 
                         }
-                        {isLoggedIn && role === "ADMIN" && (
+                        {isLoggedIn && role === "admin" && (
                             <li>
                                 <Link to="/course/create">Create Course</Link>
                             </li>
@@ -75,7 +75,7 @@ function HomeLayout({ children }) {
                             <Link to="/contact"> Contact us </Link>
                         </li>
                         <li>
-                            <Link to="/courses"> All courses </Link>
+                            <Link to="/course"> All courses </Link>
                         </li>
 
                         {!isLoggedIn ? (
